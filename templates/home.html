@@ -1,24 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="infinite-container">
-    {% for article in sarticles %}
-      <div class="infinite-item">{{ article.title }} - {{ article.publication }}</div>
-    {% endfor %}
+
+
+
+
+<div class="infinite-container">
+  {% for article in sarticles %}
+
+  {% if article.photo %}
+  <div v-if="">
+    <img class="card-img-top center" src="{{ article.photo }}">
   </div>
-  {% if sarticles.has_next %}
-     <a class="infinite-more-link" href="?page={{ sarticles.next_page_number }}">More</a>
   {% endif %}
 
-  <script>
-        var infinite = new Waypoint.Infinite({
-          element: $('.infinite-container')[0],
-          onBeforePageLoad: function () {
-            $('.loading').show();
-          },
-          onAfterPageLoad: function ($items) {
-            $('.loading').hide();
-          }
-        });
-      </script>
+  <div class="card-body">
+    <h3 class="card-title"> {{ article.title }} </h3>
+    <a href="{{ article.link }}" target="_blank" class="btn btn-primary"> ... التفاصيل</a>
+  </div>
+  <div class="card-footer text-muted">
+    <a href="{{ article.link }}"> {{ article.journal }} | {{ article.author }}</a>
+          <p class="text-muted"> {{ article.publication | date:'Y-m-d H:i'}} </p>
+      </div>
+    
+<hr>
+
+  {% endfor %}
+</div>
+{% if sarticles.has_next %}
+<a class="infinite-more-link" href="?page={{ sarticles.next_page_number }}">More</a>
+{% endif %}
+
+<script>
+  var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    onBeforePageLoad: function () {
+      $('.loading').show();
+    },
+    onAfterPageLoad: function ($items) {
+      $('.loading').hide();
+    }
+  });
+</script>
+
+<style>
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
 {% endblock %}
