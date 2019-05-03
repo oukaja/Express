@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-        <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-        <script src="{% static 'js/infinite.min.js' %}"></script>
+        {% load static %}
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/waypoints.js' %}"></script>
+        <script src="{% static 'js/infinite.js' %}"></script>
     </head>
     <body>
-
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
