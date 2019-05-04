@@ -37,7 +37,8 @@
                     <div class="card my-4">
                         <h5 class="card-header"> : إختر مدينتك</h5>
                         <div class="card-body">
-                            <select class="form-control" name="city" id="city" onchange="getSalateData(document.getElementById('city').value)">
+                            <select class="form-control" name="city" id="city"
+                                onchange="getData(document.getElementById('city').value)">
                                 <option value='Figuig'> فكيك</option>
                                 <option value='Oujda'> وجدة</option>
                                 <option value='Bouarfa'> بوعرفة</option>
@@ -138,7 +139,7 @@
                     </div>
                     <div class="card my-4">
                         <h5 class="card-header"> : مواقيت الصلاة</h5>
-                        <div class="card-body table-responsive" v-if="salattime.data">
+                        <div class="card-body table-responsive" >
 
 
                             <table class="table table-bordered">
@@ -206,86 +207,154 @@
                 <div class="sticky-top">
                     <div class="card my-4">
                         <h5 class="card-header"> : أحوال الطقس</h5>
-                        <div class="card-body" v-if="weather">
-                                                            <table class="table">
-                                                            <tbody>
+                        <div class="card-body table-responsive" >
 
-                                                            <tr>
-                                                            <td id="sunrisee"></td>
-                                                            <td class="font-weight-bold">الشروق</td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td id="sunset"></td>
-                                                            <td class="font-weight-bold">الغروب</td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td>{{ weather.atmosphere.humidity %</td>
-                                                            <td class="font-weight-bold">الرطوبة</td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td>كم/س {{ weather.wind.speed * 1.609344 | floatting</td>
-                                                            <td class="font-weight-bold">الرياح </td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td>{{ (weather.item.condition.temp - 32) * 0.5555555555555556 | floatting</td>
-                                                            <td class="font-weight-bold">درجة الحرارة</td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td>{{ (weather.item.forecast[0].low - 32) * 0.5555555555555556 | floatting</td>
-                                                            <td class="font-weight-bold">الحرارة الدنيا</td>
-                                                            </tr>
-                                                            <tr>
-                                                            <td>{{ (weather.item.forecast[0].high - 32) * 0.5555555555555556 | floatting</td>
-                                                            <td class="font-weight-bold">الحرارة القصوى</td>
-                                                            </tr>
-                        
-                                                            </tbody>
-                                                            </table>
-                        
-                        
-                                                    </div>
-                                                    </div>
-                                                    <div class="card my-4">
-                                                    <h5 class="card-header"> : تابعنا على</h5>
-                                                    <div class="card-body d-flex justify-content-center">
-                                                        <button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i> Facebook</button>&nbsp;
-                                                        <button type="button" class="btn btn-tw"><i class="fa fa-twitter pr-1"></i> Twitter</button>
-                                                    </div>
-                                                    </div>
-                                                </div>        
-                                            </div>
+
+                                <table class="table table-bordered">
+                                <tbody>
+
+                                    <tr>
+
+                                        <td class="font-weight-bold">الشروق</td>
+                                        <td id="sunrisee"></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">الغروب</td>
+                                        <td id="sunset"></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">الرطوبة</td>
+                                        <td id="humidity"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">الرياح </td>
+                                        <td id="speed"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">درجة الحرارة</td>
+                                        <td id="weather"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">الحرارة الدنيا</td>
+                                        <td id="min"></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="font-weight-bold">الحرارة القصوى</td>
+                                        <td id="max"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
 
 
                         </div>
-                      </div>
-      
-                      <div class="p-5"></div>
-      
-      
-              <div class="fixed-bottom navbar-light bg-light"> 
-                <p class="text-center">
-                      © Copyright 2018. All Rights Reserved. | Powered By 
-                      <a href="https://www.linkedin.com/in/oukajayoussefmehdi/">
-                      Youssef Mehdi OUKAJA
-                      </a>
-                      
-                  </p>  
-              </div>
+                    </div>
+                    <div class="card my-4">
+                        <h5 class="card-header"> : تابعنا على</h5>
+                        <div class="card-body d-flex justify-content-center">
+                            <button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i>
+                                Facebook</button>&nbsp;
+                            <button type="button" class="btn btn-tw"><i class="fa fa-twitter pr-1"></i> Twitter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="p-5"></div>
+
+
+    <div class="fixed-bottom navbar-light bg-light">
+        <p class="text-center">
+            © Copyright 2018. All Rights Reserved. | Powered By
+            <a href="https://www.linkedin.com/in/oukajayoussefmehdi/">
+                Youssef Mehdi OUKAJA
+            </a>
+
+        </p>
+    </div>
 
 </body>
-
-<script src="{% static 'js/bootstrap-arabic.js' %}"></script>
+<!-- <script
+  src="https://code.jquery.com/jquery-1.9.0.js"
+  integrity="sha256-TXsBwvYEO87oOjPQ9ifcb7wn3IrrW91dhj6EMEtRLvM="
+  crossorigin="anonymous"></script> -->
 <script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/waypoints.js' %}"></script>
+<script src="{% static 'js/bootstrap-arabic.js' %}"></script>
+<script src="{% static 'js/waypoint.js' %}"></script>
 <script src="{% static 'js/infinite.js' %}"></script>
+<script src="{% static 'js/crypto-js.js' %}"></script>
+
 <style>
-body {
-    position: sticky;
-  }
+    body {
+        position: sticky;
+    }
 </style>
 <script>
 
-    function getSalateData(city) {
+    function getData(city) {
+        var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss';
+        var method = 'GET';
+        var app_id = '3yBXhw3e';
+        var consumer_key = 'dj0yJmk9Tm13MGhSYWU3bUhLJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTdh';
+        var consumer_secret = 'c40d05727b885134bc6720cd8b275229ef4146b1';
+        var concat = '&';
+        var query = { 'location': city, 'format': 'json', 'u': 'c' };
+        var oauth = {
+            'oauth_consumer_key': consumer_key,
+            'oauth_nonce': Math.random().toString(36).substring(2),
+            'oauth_signature_method': 'HMAC-SHA1',
+            'oauth_timestamp': parseInt(new Date().getTime() / 1000).toString(),
+            'oauth_version': '1.0'
+        };
+
+        var merged = {};
+        $.extend(merged, query, oauth);
+        // Note the sorting here is required
+        var merged_arr = Object.keys(merged).sort().map(function (k) {
+            return [k + '=' + encodeURIComponent(merged[k])];
+        });
+        var signature_base_str = method
+            + concat + encodeURIComponent(url)
+            + concat + encodeURIComponent(merged_arr.join(concat));
+
+        var composite_key = encodeURIComponent(consumer_secret) + concat;
+        var hash = CryptoJS.HmacSHA1(signature_base_str, composite_key);
+        var signature = hash.toString(CryptoJS.enc.Base64);
+
+        oauth['oauth_signature'] = signature;
+        var auth_header = 'OAuth ' + Object.keys(oauth).map(function (k) {
+            return [k + '="' + oauth[k] + '"'];
+        }).join(',');
+
+        $.ajax({
+            url: url + '?' + $.param(query),
+            headers: {
+                'Authorization': auth_header,
+                'X-Yahoo-App-Id': app_id
+            },
+            method: 'GET',
+            success: function (data) {
+                console.log(data);
+                $("#humidity").empty().append(data.current_observation.atmosphere.humidity + " % ");
+                $("#speed").empty().append(data.current_observation.wind.speed + " كم/س ");
+                $("#weather").empty().append(data.current_observation.condition.temperature + "°");
+                $("#min").empty().append(data.forecasts["0"].high + "°");
+                $("#max").empty().append(data.forecasts["0"].low + "°");
+            }
+        });
+
         $.ajax({
             url: "http://api.aladhan.com/v1/timingsByCity?city=" + city + "&country=Morocco&method=5",
             dataType: "JSON",
@@ -300,14 +369,15 @@ body {
                 $("#date").empty().append(data.data.date.gregorian.date);
                 $("#sunset").empty().append(data.data.timings.Sunset);
                 $("#sunrisee").empty().append(data.data.timings.Sunrise);
-                
+
             }
         });
     }
-    $('#city').ready(getSalateData("rabat"));
+    $('#city').ready(getData("rabat"));
 
-    $('#city').change(getSalateData($('#city').val()));
-   
+    // $('#city').change(getSalateData($('#city').val()));
+
+
 
 
 </script>
